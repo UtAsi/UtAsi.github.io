@@ -38,18 +38,18 @@ function onYouTubeIframeAPIReady() {
               "onReady": function(event){
                   // ミュート設定をする
                   //onReadyComp(event)
-                  window.addEventListener("scroll", function() {
-                      // 画面内にプレイヤーがあるかを判定
-                      if (window.scrollY < player.getIframe().offsetTop &&
-                          window.scrollY + window.screen.height > player.getIframe().offsetTop + player.getIframe().offsetHeight) {
-                          // 動画再生
-                          if (player.getPlayerState() !== 2) player.playVideo()
-                      }
-                  })
               }
           }
       }
   )
+  window.addEventListener("scroll", function() {
+      // 画面内にプレイヤーがあるかを判定
+      if (window.scrollY < player.getIframe().offsetTop &&
+          window.scrollY + window.screen.height > player.getIframe().offsetTop + player.getIframe().offsetHeight) {
+          // 動画再生
+          player.playVideo()
+      }
+  })
 }
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
